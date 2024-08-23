@@ -1,13 +1,13 @@
-import { StyleSheet, View, Pressable, Text } from "react-native-web";
+import { StyleSheet, View, Pressable, Text } from "react-native";
 
 export default function Button({ label }) {
   return (
-    <View styles={styles.buttonContainer}>
+    <View style={styles.buttonContainer}>
       <Pressable
-        styles={styles.button}
-        onPress={() => alert("You pressed a button")}
+        style={styles.button}
+        onPress={() => alert("You pressed a button.")}
       >
-        <Text styles={styles.buttonLabel}>{label}</Text>
+        <Text style={styles.buttonLabel}>{label}</Text>
       </Pressable>
     </View>
   );
