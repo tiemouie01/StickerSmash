@@ -7,7 +7,7 @@ export default function Button({ label, theme }) {
       <View style={styles.buttonContainer}>
         <Pressable
           style={[styles.button, { backgroundColor: "#fff" }]}
-          onPress={() => alert("You pressed a button.")}
+          onPress={() => alert("Be downbad like Chichindami.")}
         >
           <FontAwesome
             name="picture-o"
