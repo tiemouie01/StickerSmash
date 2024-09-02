@@ -4,6 +4,8 @@ import { StyleSheet, View } from "react-native";
 
 import Button from "./components/Button";
 import ImageViewer from "./components/ImageViewer";
+import CircleButton from "./components/CircleButton";
+import IconButton from "./components/IconButton";
 
 import * as ImagePicker from "expo-image-picker";
 
@@ -26,6 +28,19 @@ export default function App() {
       alert("You did not select any image");
     }
   };
+
+  const onReset = () => {
+    setShowAppOptions(false);
+  };
+
+  const onAddSticker = () => {
+    // Shhhh.
+  };
+
+  const onSaveImageSync = async () => {
+    // Shhhh.
+  };
+
   return (
     <View style={styles.container}>
       <ImageViewer
@@ -33,7 +48,17 @@ export default function App() {
         selectedImage={selectedImage}
       />
       {showAppOptions ? (
-        <View />
+        <View style={styles.optionsContainer}>
+          <View style={styles.optionsRow}>
+            <IconButton icon="refresh" label="Reset" onPress={onReset} />
+            <CircleButton onPress={onAddSticker} />
+            <IconButton
+              icon="save-alt"
+              label="Save"
+              onPress={onSaveImageSync}
+            />
+          </View>
+        </View>
       ) : (
         <View style={styles.footerContainer}>
           <Button
@@ -71,5 +96,13 @@ const styles = StyleSheet.create({
   footerContainer: {
     flex: 1 / 3,
     alignItems: "center",
+  },
+  optionsContainer: {
+    position: "absolute",
+    bottom: 80,
+  },
+  optionsRow: {
+    alignItems: "center",
+    flexDirection: "row",
   },
 });
