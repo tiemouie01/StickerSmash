@@ -8,6 +8,7 @@ import CircleButton from "./components/CircleButton";
 import IconButton from "./components/IconButton";
 import EmojiPicker from "./components/EmojiPicker";
 import EmojiList from "./components/EmojiList";
+import EmojiSticker from "./components/EmojiSticker";
 
 import * as ImagePicker from "expo-image-picker";
 
@@ -51,10 +52,15 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <ImageViewer
-        placeholderImageSource={PlaceHolderImage}
-        selectedImage={selectedImage}
-      />
+      <View style={styles.imageContainer}>
+        <ImageViewer
+          placeholderImageSource={PlaceHolderImage}
+          selectedImage={selectedImage}
+        />
+        {pickedEmoji && (
+          <EmojiSticker imageSize={40} stickerSource={pickedEmoji} />
+        )}
+      </View>
       {showAppOptions ? (
         <View style={styles.optionsContainer}>
           <View style={styles.optionsRow}>
